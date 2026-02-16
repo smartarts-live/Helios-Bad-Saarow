@@ -143,7 +143,6 @@
             height: auto;
             max-height: 160px;
         }
-        /* Zeichnungs-Stil */
         .svg-line {
             fill: none;
             stroke: var(--helios-darkblue);
@@ -164,9 +163,8 @@
 
         @media (min-width: 900px) {
              .comic-img-container {
-                 justify-content: flex-end; /* Rechtsbündig auf Desktop */
+                 justify-content: flex-end; 
              }
-             /* Ausnahme für Titel und Ende Slide */
              #slide-1 .comic-img-container, 
              #slide-9 .comic-img-container {
                  justify-content: center;
@@ -185,6 +183,36 @@
         }
         .helios-branding span {
             color: var(--helios-cyan);
+        }
+
+        /* NEU: DARK MODE SLIDE (Für Slide 10) */
+        .slide-dark {
+            background-color: var(--helios-darkblue);
+            color: white;
+        }
+        .slide-dark h1, .slide-dark h3 {
+            color: white !important;
+        }
+        .slide-dark h2 {
+            color: var(--helios-cyan) !important;
+        }
+        .qr-container-dark {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-top: 30px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            border: 1px solid var(--helios-cyan);
+        }
+        .qr-code-helios {
+            max-width: 200px;
+            width: 100%;
+            height: auto;
+            filter: invert(1) brightness(1.2) drop-shadow(0 0 2px var(--helios-cyan));
+            mix-blend-mode: screen; 
         }
 
         /* NAVIGATION */
@@ -268,6 +296,9 @@
             }
             .controls { display: none !important; }
             .grid-2 { grid-template-columns: 1fr 1fr !important; gap: 40px; }
+            .slide-dark { background-color: white !important; color: black !important; }
+            .slide-dark h1, .slide-dark h3 { color: #00324C !important; }
+            .qr-code-helios { filter: none !important; mix-blend-mode: normal !important; }
         }
     </style>
 </head>
@@ -276,7 +307,7 @@
     <div class="presentation-wrapper">
 
         <div class="slide active title-slide" id="slide-1">
-            <h1>Care for Carers</h1>
+            <h1>Community & Experience</h1>
             <h2>Engagement-Konzept für Bad Saarow</h2>
             
             <div class="comic-img-container" style="margin: 30px 0;">
@@ -286,22 +317,20 @@
                     <line x1="70" y1="65" x2="70" y2="110" class="svg-line" />
                     <line x1="70" y1="110" x2="55" y2="140" class="svg-line" />
                     <line x1="70" y1="110" x2="85" y2="140" class="svg-line" />
-                    <line x1="70" y1="80" x2="45" y2="70" class="svg-line" /> 
                     <line x1="70" y1="80" x2="95" y2="80" class="svg-line" /> 
                     <circle cx="130" cy="50" r="15" class="svg-line" />
                     <line x1="130" y1="65" x2="130" y2="110" class="svg-line" />
                     <line x1="130" y1="110" x2="115" y2="140" class="svg-line" />
                     <line x1="130" y1="110" x2="145" y2="140" class="svg-line" />
                     <line x1="130" y1="80" x2="105" y2="80" class="svg-line" /> 
-                    <line x1="130" y1="80" x2="155" y2="70" class="svg-line" />
                 </svg>
             </div>
 
             <div class="accent"></div>
             <div class="meta-info">
                 <strong>Referent:</strong> Constantin Paul<br>
-                <strong>Fokus:</strong> Klinischer Alltag & BGM<br>
-                <strong>Mission:</strong> Entlastung statt "Feel Good"
+                <strong>Fokus:</strong> Verbindung & Events<br>
+                <strong>Mission:</strong> Zusammenhalt stärken
             </div>
         </div>
 
@@ -309,38 +338,36 @@
             <div class="helios-branding">Helios<span>Gesundheit</span></div>
             <div class="slide-header">
                 <h1>Die Klinik-Realität</h1>
-                <h2>Warum Büro-Konzepte hier scheitern</h2>
+                <h2>Das "Wir-Gefühl" im Fokus</h2>
             </div>
             <div class="grid-2">
                 <div>
-                    <h3>Besondere Herausforderungen</h3>
+                    <h3>Der wahre Bedarf</h3>
+                    <p>Medizinisches Personal ist resilient und professionell. Das Problem ist nicht die Belastung, sondern die Sichtbarkeit.</p>
                     <ul>
-                        <li><strong>Schichtdienst:</strong> Keine "Flex-Work" Optionen wie im Büro.</li>
-                        <li><strong>Hierarchie:</strong> Trennung zwischen Ärztlichem Dienst, Pflege & Verwaltung.</li>
-                        <li><strong>Emotionale Last:</strong> Konfrontation mit Krankheit & Tod.</li>
+                        <li><strong>Silo-Denken:</strong> Starke Trennung zwischen Stationen & Verwaltung.</li>
+                        <li><strong>Lifestyle:</strong> Schichtarbeit ist eine bewusste Entscheidung, kein "Problem".</li>
+                        <li><strong>Wunsch:</strong> Hochwertige Angebote, die in den Alltag passen.</li>
                     </ul>
                 </div>
                 <div>
                     <div class="comic-img-container">
                         <svg class="comic-svg" viewBox="0 0 200 150">
-                            <rect x="80" y="80" width="40" height="30" class="svg-accent" />
-                            <circle cx="60" cy="60" r="12" class="svg-line" />
-                            <line x1="60" y1="72" x2="70" y2="100" class="svg-line" />
-                            <line x1="70" y1="100" x2="60" y2="130" class="svg-line" />
-                            <line x1="70" y1="100" x2="80" y2="130" class="svg-line" />
-                            <line x1="60" y1="75" x2="80" y2="85" class="svg-line" />
-                            <circle cx="140" cy="60" r="12" class="svg-line" />
-                            <line x1="140" y1="72" x2="130" y2="100" class="svg-line" />
-                            <line x1="130" y1="100" x2="120" y2="130" class="svg-line" />
-                            <line x1="130" y1="100" x2="140" y2="130" class="svg-line" />
-                            <line x1="140" y1="75" x2="120" y2="85" class="svg-line" />
+                            <path d="M10 120 Q 50 100, 80 120" class="svg-line" />
+                            <path d="M120 120 Q 150 100, 190 120" class="svg-line" />
+                            <path d="M80 120 Q 100 80, 120 120" class="svg-line" stroke-dasharray="5,5" />
+                            <rect x="90" y="90" width="20" height="10" class="svg-accent" />
+                            <circle cx="70" cy="90" r="10" class="svg-line" />
+                            <line x1="70" y1="100" x2="70" y2="120" class="svg-line" />
+                            <circle cx="130" cy="90" r="10" class="svg-line" />
+                            <line x1="130" y1="100" x2="130" y2="120" class="svg-line" />
                         </svg>
                     </div>
                     <h3>Der Ansatz</h3>
                     <div class="highlight-box">
-                        <strong>Von "Bespaßung" zu "Entlastung"</strong>
+                        <strong>Verbindung statt "Therapie"</strong>
                     </div>
-                    <p>Mitarbeiterbindung in der Pflege entsteht nicht durch Obstkörbe, sondern durch das Gefühl, im stressigen Alltag <em>gesehen</em> und <em>unterstützt</em> zu werden.</p>
+                    <p>Wir müssen niemanden retten. Wir müssen Räume schaffen (Events & Kultur), in denen Erfolge gefeiert werden und Austausch stattfindet.</p>
                 </div>
             </div>
         </div>
@@ -348,16 +375,16 @@
         <div class="slide" id="slide-3">
             <div class="helios-branding">Helios<span>Gesundheit</span></div>
             <div class="slide-header">
-                <h1>1. Die "Mitarbeiter-Visite"</h1>
-                <h2>Aktives Zuhören auf Station</h2>
+                <h1>1. Die "Success-Visite"</h1>
+                <h2>Marketing nach innen tragen</h2>
             </div>
             <div class="grid-2">
                 <div>
-                    <h3>Das Konzept</h3>
-                    <p>Ärzte machen Visite bei Patienten. Wir machen Visite beim Personal.</p>
+                    <h3>Aktives "Story Scouting"</h3>
+                    <p>Statt nur nach Problemen zu fragen, suchen wir nach Erfolgsgeschichten für die interne Kommunikation.</p>
                     <ul>
-                        <li><strong>Präsenz:</strong> Regelmäßige Gänge durch die Stationen (nicht nur E-Mail).</li>
-                        <li><strong>Listening:</strong> Abfragen von "Kieseln im Schuh" (kleine nervige Alltagshürden).</li>
+                        <li><strong>Präsenz:</strong> Regelmäßige Gänge durch die Stationen, um "Good News" einzusammeln.</li>
+                        <li><strong>Listening:</strong> Was bewegt die Teams? Wo fehlt Information?</li>
                     </ul>
                 </div>
                 <div>
@@ -369,15 +396,13 @@
                             <line x1="150" y1="100" x2="165" y2="130" class="svg-line" />
                             <rect x="130" y="60" width="20" height="30" class="svg-fill-white" /> 
                             <path d="M40 30 Q 100 30, 100 60 Q 100 90, 70 90 L 50 110 L 50 90 Q 20 90, 20 60 Q 20 30, 40 30" class="svg-line" />
-                            <line x1="40" y1="50" x2="80" y2="50" class="svg-line" style="stroke-width:2; stroke:#ccc" />
-                            <line x1="40" y1="70" x2="70" y2="70" class="svg-line" style="stroke-width:2; stroke:#ccc" />
-                        </svg>
+                            <path d="M50 50 L 70 60 L 50 70" class="svg-accent" /> </svg>
                     </div>
                     <h3>Umsetzung Bad Saarow</h3>
                     <div class="highlight-box">
-                        <strong>Mobile Office Hours</strong>
+                        <strong>Mobile Office & Touchpoints</strong>
                     </div>
-                    <p>Sprechstunde nicht im Verwaltungsgebäude, sondern rotierend in den Pausenräumen der Stationen. <br><em>"Ich komme zu euch, ihr müsst nicht zu mir kommen."</em></p>
+                    <p>Sichtbarkeit in den Pausenräumen. Nicht als "Problemlöser", sondern als Ansprechpartner für Events und Campus-Leben.</p>
                 </div>
             </div>
         </div>
@@ -385,16 +410,16 @@
         <div class="slide" id="slide-4">
             <div class="helios-branding">Helios<span>Gesundheit</span></div>
             <div class="slide-header">
-                <h1>2. BGM & Pausenkultur</h1>
-                <h2>Auftanken im Schichtdienst</h2>
+                <h1>2. Quality Break</h1>
+                <h2>Den Schicht-Lifestyle aufwerten</h2>
             </div>
             <div class="grid-2">
                 <div>
-                    <h3>Gesundheitsmanagement (BGM)</h3>
-                    <p>Klassische BGM-Kurse um 17 Uhr erreichen Schichtarbeiter nicht.</p>
+                    <h3>Service für Profis</h3>
+                    <p>Wer Schicht arbeitet, macht das freiwillig, braucht aber passgenaue Angebote.</p>
                     <ul>
-                        <li><strong>Mikro-Pausen:</strong> Anleitung zu 3-Minuten Entspannungen direkt am Arbeitsplatz.</li>
-                        <li><strong>Nachtschicht-Support:</strong> "Survival Kits" (Gesunde Snacks, Vitamin-Shots).</li>
+                        <li><strong>Energy Boost:</strong> Gesunde Snacks/Drinks zu Zeiten, wo die Kantine zu hat (Nachtschicht-Support).</li>
+                        <li><strong>Lounge-Konzept:</strong> Aufwertung der Pausenräume zu echten Rückzugsorten.</li>
                     </ul>
                 </div>
                 <div>
@@ -409,11 +434,10 @@
                         </svg>
                     </div>
                     <h3>Der "Oase"-Gedanke</h3>
-                    <p>Pausenräume sind oft trostlos.</p>
                     <div class="highlight-box">
                         <strong>Quick Win:</strong>
                     </div>
-                    <p>Aufwertung der Pausenräume (Licht, Pflanzen, bequeme Sitzmöbel). Der Pausenraum muss eine psychologische Distanz zur Station ermöglichen.</p>
+                    <p>Den Arbeitsplatz verlassen können (mental und physisch), um kurz aufzutanken. Atmosphäre statt "Überlebenstraining".</p>
                 </div>
             </div>
         </div>
@@ -421,16 +445,16 @@
         <div class="slide" id="slide-5">
             <div class="helios-branding">Helios<span>Gesundheit</span></div>
             <div class="slide-header">
-                <h1>3. Wertschätzung & Events</h1>
-                <h2>Verbindung schaffen</h2>
+                <h1>3. Events & Wertschätzung</h1>
+                <h2>Das Herzstück: Verbindung schaffen</h2>
             </div>
             <div class="grid-2">
                 <div>
-                    <h3>Peer-to-Peer Anerkennung</h3>
-                    <p>Oft fühlen sich Pflegekräfte nicht gesehen.</p>
+                    <h3>Professionelles Event-Management</h3>
+                    <p>Hier liegt der Kern der Rolle. Events sind das Tool, um Silos aufzubrechen.</p>
                     <ul>
-                        <li><strong>"Helios Heroes":</strong> Ein Kartensystem oder digitales Tool, wo Kollegen sich gegenseitig für Hilfe danken können.</li>
-                        <li><strong>Ziel:</strong> Sichtbarmachung der "Stillen Helden".</li>
+                        <li><strong>Format-Mix:</strong> Vom "Food Truck Day" (schnell, in der Pause) bis zur hochwertigen Jahresfeier.</li>
+                        <li><strong>Ziel:</strong> Gemeinschaftserlebnisse schaffen, über die man spricht.</li>
                     </ul>
                 </div>
                 <div>
@@ -445,12 +469,11 @@
                             <circle cx="100" cy="45" r="15" fill="none" stroke="#009EB3" stroke-width="2" />
                         </svg>
                     </div>
-                    <h3>Events mit Sinn</h3>
-                    <p>Keine Zwangsveranstaltungen nach Feierabend.</p>
+                    <h3>Sichtbarkeit ("Helios Heroes")</h3>
                     <div class="highlight-box">
-                        <strong>Food Truck Days</strong>
+                        <strong>Die Bühne bereiten</strong>
                     </div>
-                    <p>Besondere Verpflegung direkt auf dem Campus. Ein Event, das in die Pause passt und niemanden zwingt, länger zu bleiben.</p>
+                    <p>Events nutzen, um "Stille Helden" zu ehren. Nicht therapeutisch, sondern als echte Anerkennung für Leistung.</p>
                 </div>
             </div>
         </div>
@@ -463,11 +486,11 @@
             </div>
             <div class="grid-2">
                 <div>
-                    <h3>Der erste Tag</h3>
-                    <p>In der Hektik des Klinikalltags gehen Neue oft unter.</p>
+                    <h3>Der erste Tag entscheidet</h3>
+                    <p>Wer neu kommt, muss sofort Teil der Community werden.</p>
                     <ul>
-                        <li><strong>Paten-System:</strong> Zuweisung eines festen "Buddys" außerhalb der direkten Führungslinie.</li>
-                        <li><strong>Willkommens-Mappe:</strong> Der "Klinik-Guide" (Wo gibt es den besten Kaffee? Wer hilft bei IT-Problemen?).</li>
+                        <li><strong>Netzwerk:</strong> Paten-System, das über die eigene Station hinausgeht.</li>
+                        <li><strong>Klinik-Guide:</strong> Wo ist was? Wer hilft bei IT? (Orientierung statt Bürokratie).</li>
                     </ul>
                 </div>
                 <div>
@@ -485,7 +508,7 @@
                     <div class="highlight-box">
                         <strong>Hospitality Mindset</strong>
                     </div>
-                    <p>Behandlung neuer Mitarbeiter wie VIP-Gäste im Hotel. Ein perfekter Start reduziert die Frühfluktuation massiv.</p>
+                    <p>Behandlung neuer Kollegen wie VIP-Gäste. Ein perfekter Start sorgt für langfristige Bindung.</p>
                 </div>
             </div>
         </div>
@@ -494,15 +517,15 @@
             <div class="helios-branding">Helios<span>Gesundheit</span></div>
             <div class="slide-header">
                 <h1>Daten & Erfolgskontrolle</h1>
-                <h2>Nutzung von Helios Puls</h2>
+                <h2>Teilnahme als Währung</h2>
             </div>
             <div class="grid-2">
                 <div>
-                    <h3>Daten nutzen, nicht nur sammeln</h3>
-                    <p>Die <em>Helios Puls</em> Befragung liefert Daten. Die Kunst ist die Ableitung.</p>
+                    <h3>Daten nutzen</h3>
+                    <p>Nutzung von <em>Helios Puls</em> nicht nur für Probleme, sondern als Stimmungsbarometer.</p>
                     <ul>
-                        <li><strong>Pulse-Checks:</strong> Kurze Stimmungsbilder nach intensiven Phasen (z.B. Grippewelle).</li>
-                        <li><strong>Krankenstand-Analyse:</strong> Korrelation zwischen Maßnahmen und kurzfristigen Krankmeldungen prüfen.</li>
+                        <li><strong>Event-KPIs:</strong> Wie viele nehmen teil? Wie ist die Resonanz?</li>
+                        <li><strong>Stimmungsbild:</strong> Verändert sich das "Wir-Gefühl" in den Kommentaren?</li>
                     </ul>
                 </div>
                 <div>
@@ -521,7 +544,7 @@
                     <div class="highlight-box">
                         <strong>"You said, we did"</strong>
                     </div>
-                    <p>Transparente Kommunikation der Ergebnisse. "Ihr habt euch besseres Licht gewünscht – hier ist der Zeitplan."</p>
+                    <p>Transparente Kommunikation: "Ihr wolltet ein Sommerfest – hier ist das Datum."</p>
                 </div>
             </div>
         </div>
@@ -534,15 +557,16 @@
             </div>
             <div class="grid-2">
                 <div>
-                    <h3>Phase 1: Zuhören (Tag 1-30)</h3>
+                    <h3>Phase 1: Verstehen (Tag 1-30)</h3>
                     <ul>
                         <li>Vorstellung in allen Teams.</li>
-                        <li>Hospitation: Einen Tag "mitlaufen" in der Pflege, Küche & Verwaltung.</li>
+                        <li>Hospitation: Einen Tag "mitlaufen" in Pflege & Küche (Präsenz zeigen).</li>
                     </ul>
                     
-                    <h3>Phase 2: Quick Wins (Tag 31-60)</h3>
+                    <h3>Phase 2: Sichtbarkeit (Tag 31-60)</h3>
                     <ul>
-                        <li>Identifikation & Lösung von 3 "Nerv-Faktoren" (z.B. kaputte Kaffeemaschine).</li>
+                        <li>Erstes kleines "Connector-Event" (z.B. Coffee-Bike auf dem Campus).</li>
+                        <li>Identifikation von "Key-Influencern" auf den Stationen.</li>
                     </ul>
                 </div>
                 <div>
@@ -551,7 +575,6 @@
                             <path d="M20 100 Q 60 100, 80 70 T 140 40 T 180 10" class="svg-line" stroke-dasharray="8,4" />
                             <line x1="80" y1="70" x2="80" y2="40" class="svg-line" />
                             <path d="M80 40 L 100 50 L 80 60 Z" class="svg-accent" />
-                            
                             <line x1="180" y1="10" x2="180" y2="-20" class="svg-line" />
                             <path d="M180 -20 L 200 -10 L 180 0 Z" class="svg-accent" />
                             <circle cx="40" cy="80" r="10" class="svg-line" />
@@ -560,12 +583,12 @@
                     </div>
                     <h3>Phase 3: Struktur (Tag 61-90)</h3>
                     <ul>
-                        <li>Aufsetzen der "Mitarbeiter-Visite".</li>
-                        <li>Planung des Jahreskalenders (Events & BGM).</li>
+                        <li>Jahreskalender für Events & Aktionen finalisieren.</li>
+                        <li>Etablierung der regelmäßigen "Campus-Präsenz".</li>
                     </ul>
                     <div class="highlight-box">
                         <strong>Ziel nach 100 Tagen:</strong><br>
-                        Jeder Mitarbeiter kennt mein Gesicht und weiß: "Da ist jemand, der sich kümmert."
+                        Jeder kennt mich als den, der das Team zusammenbringt.
                     </div>
                 </div>
             </div>
@@ -575,20 +598,17 @@
             <div class="helios-branding">Helios<span>Gesundheit</span></div>
             <div class="slide-header">
                 <h1>Fazit</h1>
-                <h2>Gesunde Mitarbeiter = Gesunde Patienten</h2>
+                <h2>Starke Teams = Starke Klinik</h2>
             </div>
             
              <div class="comic-img-container" style="margin: 40px 0;">
                 <svg class="comic-svg" viewBox="0 0 200 100">
                     <circle cx="70" cy="40" r="15" class="svg-line" />
                     <path d="M60 50 Q 70 60, 80 50" class="svg-line" fill="none" /> 
-                    
                     <circle cx="100" cy="30" r="15" class="svg-line" />
                     <path d="M90 40 Q 100 50, 110 40" class="svg-line" fill="none" /> 
-                    
                     <circle cx="130" cy="40" r="15" class="svg-line" />
                     <path d="M120 50 Q 130 60, 140 50" class="svg-line" fill="none" /> 
-                    
                     <line x1="50" y1="50" x2="40" y2="30" class="svg-line" />
                     <line x1="150" y1="50" x2="160" y2="30" class="svg-line" />
                 </svg>
@@ -598,13 +618,45 @@
                 <h3>Constantin Paul</h3>
                 <p>Kandidat Employee Engagement Management</p>
                 <br>
-                <p><em>"Ich bringe die Service-Exzellenz der Hotellerie in die Fürsorge des Klinikums."</em></p>
+                <p><em>"Ich bringe die Service-Exzellenz der Hotellerie in die Community des Klinikums."</em></p>
+            </div>
+        </div>
+
+        <div class="slide slide-dark" id="slide-10">
+            <div class="helios-branding" style="color: white;">Helios<span>Gesundheit</span></div>
+            
+            <div class="slide-header" style="border-color: var(--helios-cyan);">
+                <h1>Let's Connect</h1>
+                <h2>Der direkte Draht zum Konzept</h2>
+            </div>
+
+            <div class="grid-2">
+                <div style="display: flex; flex-direction: column; justify-content: center;">
+                    <h3>Digital & Interaktiv</h3>
+                    <p>Scannen Sie diesen Code, um die Präsentation interaktiv auf Ihrem Smartphone zu erleben.</p>
+                    
+                    <ul style="margin-top: 20px;">
+                        <li><strong>Papierlos:</strong> Nachhaltig & modern.</li>
+                        <li><strong>Live:</strong> Immer die aktuellste Version.</li>
+                        <li><strong>Helios CI:</strong> 100% Brand Compliant.</li>
+                    </ul>
+
+                    <div class="highlight-box" style="background-color: rgba(0, 158, 179, 0.1); border-left-color: white; color: white;">
+                        <strong>Constantin Paul</strong><br>
+                        <em>"Engagement beginnt mit Erreichbarkeit."</em>
+                    </div>
+                </div>
+
+                <div class="qr-container-dark">
+                    <img src="Helios.png" alt="QR Code" class="qr-code-helios">
+                    <p style="margin-top: 15px; font-size: 14px; color: var(--helios-cyan);">Scan me</p>
+                </div>
             </div>
         </div>
 
         <div class="controls">
             <button id="btn-prev" onclick="changeSlide(-1)">&#10094; Zurück</button>
-            <div class="slide-counter"><span id="current-page">1</span> / 9</div>
+            <div class="slide-counter"><span id="current-page">1</span> / 10</div>
             <button id="btn-next" onclick="changeSlide(1)">Weiter &#10095;</button>
         </div>
 
@@ -612,7 +664,7 @@
 
     <script>
         let currentSlide = 1;
-        const totalSlides = 9;
+        const totalSlides = 10;
 
         function updateControls() {
             document.getElementById('btn-prev').disabled = currentSlide === 1;
